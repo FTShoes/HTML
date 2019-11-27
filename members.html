@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Members</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/permission.css">
+</head>
+
+<body>
+    <div class="header ">
+        <a href="http://127.0.0.1:5503/index.htm#">
+            <div class="header_logo">
+                <img src="./img/logo101.png" alt="" class="mt-1 ml-3">
+            </div>
+        </a>
+        <div class="header_search">
+            <form class="form-inline my-1 my-lg-0">
+                <input class="form-control mr-sm-2 mt-2 ml-2 search_bar" type="search" placeholder="Search..."
+                    aria-label="Search">
+            </form>
+            <div class="header_search_user">
+                <img src="./img/profile.jpg" alt="" class="mt-1 ml-3">
+                <p class="header_search_name ml-2">Sky</p>
+            </div>
+        </div>
+    </div>
+    <!-- CONTENT -->
+    <div class="content">
+        <div class="content_title container">
+            <h3>Danh sách thành viên</h3>
+            <button type="button" class="btn btn-primary btn_addnew" data-toggle="modal" data-target="#exampleModal">
+                <i class="fa fa-plus-circle"></i> Thêm mới
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Thêm mới thành viên</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="">
+                                <div class="form-group">
+                                    <label for="formGroupExampleInput">Họ tên</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        placeholder="Họ và tên">
+                                </div>
+                                <div class="form-group">
+                                    <label for="formGroupExampleInput2">Email</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="formGroupExampleInput3">Số điện thoại</label>
+                                    <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Số điện thoại">
+                                </div>
+                                <div class="form-group">
+                                    <label for="formGroupExampleInput4">Mật khẩu</label>
+                                    <input type="password" class="form-control" id="formGroupExampleInput" placeholder="Mật khẩu">
+                                </div>
+                                <div class="form-group">
+                                    <label for="formGroupExampleInput5">Nơi ở</label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected>Chọn nơi ở</option>
+                                        <option>Tp.HCM</option>
+                                        <option>Hà Nội</option>
+                                        <option>Đà Nẵng</option>
+                                        <option>Cà Mau</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Quay lại</button>
+                            <button type="button" class="btn btn-success">Thêm quyền</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content_members container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Họ</th>
+                        <th scope="col">Tên</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Quyền</th>
+                        <th scope="col">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@sky</td>
+                        <td>Admin</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">Sửa</button>
+                            <button type="button" class="btn btn-danger">Xóa</button>
+                            <button type="button" class="btn btn-success">Xem</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

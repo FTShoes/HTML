@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Index</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/search.css">
+
+
+    <script>
+      window.onload = function() {
+      
+      var chart = new CanvasJS.Chart("chartContainer", {       
+        animationEnabled: true,
+        title: {
+          text: ""
+        },
+        axisX:{
+          minimum: 5,
+          maximum: 95
+        },
+        data: [{
+          type: "column",
+          dataPoints: [
+            { x: 10, y: 71 },
+            { x: 20, y: 55 },
+            { x: 30, y: 50 },
+            { x: 40, y: 65 },
+            { x: 50, y: 95 },
+            { x: 60, y: 68 },
+            { x: 70, y: 28 },
+            { x: 80, y: 34 },
+            { x: 90, y: 20 }
+          ]
+        }]
+      });
+      chart.render();
+      
+      var xSnapDistance = chart.axisX[0].convertPixelToValue(chart.get("dataPointWidth")) / 2;
+      var ySnapDistance = 3;
+      
+      var xValue, yValue;
+      
+      var mouseDown = false;
+      var selected = null;
+      var changeCursor = false;
+      
+      var timerId = null;
+      
+      function getPosition(e) {
+        var parentOffset = $("#chartContainer > .canvasjs-chart-container").offset();          	
+        var relX = e.pageX - parentOffset.left;
+        var relY = e.pageY - parentOffset.top;
+        xValue = Math.round(chart.axisX[0].convertPixelToValue(relX));
+        yValue = Math.round(chart.axisY[0].convertPixelToValue(relY));
+      }
+      
+      function searchDataPoint() {
+        var dps = chart.data[0].dataPoints;
+        for(var i = 0; i < dps.length; i++ ) {
+          if( (xValue >= dps[i].x - xSnapDistance && xValue <= dps[i].x + xSnapDistance) && (yValue >= dps[i].y - ySnapDistance && yValue <= dps[i].y + ySnapDistance) ) 
+          {
+            if(mouseDown) {
+              selected = i;
+              break;
+            } else {
+              changeCursor = true;
+              break; 
+            }
+          } else {
+            selected = null;
+            changeCursor = false;
+          }
+        }
+      }
+      
+      jQuery("#chartContainer > .canvasjs-chart-container").on({
+        mousedown: function(e) {
+          mouseDown = true;
+          getPosition(e);  
+          searchDataPoint();
+        },
+        mousemove: function(e) {
+          getPosition(e);
+          if(mouseDown) {
+            clearTimeout(timerId);
+            timerId = setTimeout(function(){
+              if(selected != null) {
+                chart.data[0].dataPoints[selected].y = yValue;
+                chart.render();
+              }   
+            }, 0);
+          }
+          else {
+            searchDataPoint();
+            if(changeCursor) {
+              chart.data[0].set("cursor", "n-resize");
+            } else {
+              chart.data[0].set("cursor", "default");
+            }
+          }
+        },
+        mouseup: function(e) {
+          if(selected != null) {
+            chart.data[0].dataPoints[selected].y = yValue;
+            chart.render();
+            mouseDown = false;
+          }
+        }
+      });
+      
+      }
+      </script>
+  </head>
+  <body>
+    <!-- HEADER -->
+     <div class="header ">
+       <div class="header_logo">
+         <img src="./img/logo101.png" alt="" class="mt-1 ml-3">
+       </div>
+       <div class="header_search">
+          <div class="header_search_user">
+            <img src="./img/profile.jpg" alt="" class="mt-1 ml-3">
+            <p class="header_search_name ml-2">Ronaldo</p>
+          </div>
+       </div>
+     </div> 
+     <!-- NAVBAR -->
+     <nav class="navbar navbar-expand-sm navbar-light bg-light">
+       
+       <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+           aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="collapsibleNavId">
+         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link " href="#"><i class="fa fa-eye"></i> Tổng Quan <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="http://127.0.0.1:5503/permission.html"><i class="fa fa-user" aria-hidden="true"></i> Quyền <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="http://127.0.0.1:5503/members.html"><i class="fa fa-users" aria-hidden="true"></i> Thành Viên <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="http://127.0.0.1:5503/product.html"><i class="fa fa-product-hunt" aria-hidden="true"></i> Hàng Hóa <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#"><i class="fa fa-flag" aria-hidden="true"></i> Báo Cáo <span class="sr-only">(current)</span></a>
+          </li>
+         </ul>
+         <form class="form-inline my-2 my-lg-0" id="demo-2">
+          <input type="search" placeholder="Search" style="border: transparent;">
+           <!-- <a href="http://127.0.0.1:5503/sales.html"><i class="fa fa-shopping-cart"></i> Bán Hàng</a> -->
+         </form>
+       </div>
+     </nav>
+     <!-- OVERVIEW -->
+     <section class="overview container"> 
+      <h5>KẾT QUẢ BÁN HÀNG HÔM NAY</h5>
+      <div class="overview_content">
+        <div class="overview_content_title">
+          <div class="overview_content_title_icon" >
+            <i class="fa fa-usd" style="color: aliceblue;" aria-hidden="true"></i>
+          </div>
+          <div class="overview_content_title_detail">
+            <p class="text-dark" style="font-size: 13px;">1 hóa đơn</p>
+            <p style="font-size: 25px; font-weight: 600;" class="text-primary">56,172,000</p>
+            <p class="text-secondary" style="font-size: 13px;">Doanh thu tuần</p>
+          </div>
+        </div>
+
+        <div class="overview_content_title">
+          <div class="overview_content_title_back" >
+            <i class="fa fa-reply-all icon_back" style="color: aliceblue;" aria-hidden="true"></i>
+          </div>
+          <div class="overview_content_title_detail">
+            <p class="text-dark" style="font-size: 13px;">0 phiếu</p>
+            <p style="font-size: 25px; font-weight: 600; color: #ff7b00;" >0</p>
+            <p class="text-secondary" style="font-size: 13px;">Trả hàng</p>
+          </div>
+        </div>
+
+        <div class="overview_content_title">
+          <div class="overview_content_title_upto" >
+            <i class="fa fa-chevron-up icon_upto" style="color: aliceblue;" aria-hidden="true"></i>
+          </div>
+          <div class="overview_content_title_detail">
+            <p class="text-dark" style="font-size: 13px;">-</p>
+            <p style="font-size: 25px; font-weight: 600; color: #00ffbf;">70,84%</p>
+            <p class="text-secondary" style="font-size: 13px;">So với hôm qua</p>
+          </div>
+        </div>
+
+        <div class="overview_content_title">
+          <div class="overview_content_title_upto" >
+            <i class="fa fa-chevron-up icon_upto" style="color: aliceblue;" aria-hidden="true"></i>
+          </div>
+          <div class="overview_content_title_detail">
+            <p class="text-dark" style="font-size: 13px;">-</p>
+            <p style="font-size: 25px; font-weight: 600; color: #00ffbf;">10,23%</p>
+            <p class="text-secondary" style="font-size: 13px;">So với cùng kỳ tháng trước</p>
+          </div>
+        </div>
+      </div>
+     </section>
+
+
+     <section class="overview_detail container mt-5">
+      <h5>DOANH THU THUẦN THÁNG NÀY</h5>
+      <div id="chartContainer" style="height: 350px; width: 100%;"></div> 
+     </section>
+     <!-- END OVERVIEW -->
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>  
+  </body>
+</html>

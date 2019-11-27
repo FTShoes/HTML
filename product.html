@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Products</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/product.css">
+  </head>
+  <body>
+      <!-- HEADER -->
+    <div class="header ">
+        <a href="http://127.0.0.1:5503/index.htm">
+            <div class="header_logo">
+                <img src="./img/logo101.png" alt="" class="mt-1 ml-3">
+            </div>
+        </a>
+        <div class="header_search">
+            <div class="header_search_user">
+                <img src="./img/profile.jpg" alt="" class="mt-1 ml-3">
+                <p class="header_search_name ml-2">Sky</p>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content_control">
+            <div class="content_control_search">
+                <div class="content_control_search_detail">
+                    Tìm kiếm
+                </div>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2 mt-2 ml-1" type="search" placeholder="Theo mã, tên hàng" aria-label="Search">
+                    <input class="form-control mr-sm-2 mt-2 ml-1" type="search" placeholder="Theo ghi chú, mô tả đặt hàng" aria-label="Search">
+                </form>
+
+            </div>
+            <div class="content_control_category">
+                <div class="content_control_search_detail">
+                    Loại hàng
+                </div>
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Hàng hóa</label>
+                </div>
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input" id="customCheck2">
+                    <label class="custom-control-label" for="customCheck2">Dịch vụ</label>
+                </div>
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input" id="customCheck3">
+                    <label class="custom-control-label" for="customCheck3">Combo-Đóng gói</label>
+                </div>
+            </div>
+            <div class="content_control_group mt-4">
+                <div class="content_control_search_detail">
+                    Nhóm hàng
+                </div>
+                <div class="content_control_search_menu">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2 mt-2 ml-1" type="search" placeholder="Tìm kiếm nhóm hàng" aria-label="Search">
+                        
+                    </form>
+                    <ul>
+                        <li><a href="">Giày nam</a></li>
+                        <li><a href="">Giày nữ</a></li>
+                        <li><a href="">Phụ kiện nam</a></li>
+                        <li><a href="">Phụ kiện nữ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <div class="content_listproduct mt-2 mb-2">
+            <div class="content_listproduct_control">
+                <h4 style="color: #e85a50;">Hàng hóa</h4>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn_addnew btn btn-success mr-3" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fa fa-plus-circle"></i>Thêm mới
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Thêm hàng hóa</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body product_modal_body">
+                                <label for="" class="ml-3 mr-3 mb-4"><b>Mã hàng hóa</b></label> <input type="text" class="modal_input" placeholder="Mã hàng hóa"> 
+                                <label class="modal_label mr-3 mb-4" for=""><b>Giá vốn</b></label> <input type="number" class="price_input" placeholder="0"> <br>
+                                <label for="" class="ml-3 mr-5 mb-4"><b>Tên hàng</b></label> <input type="text" class="modal_input" placeholder="Nhập tên hàng"> 
+                                <label class="modal_label mr-3 mb-4" for=""><b>Giá bán</b></label> <input type="number" class="price_input" placeholder="0"> <br>
+                                <label for="" class="ml-3 mr-4 mb-4"><b>Nhóm hàng</b></label> <select id="inputState" >
+                                        <option selected disabled>--Chọn nhóm hàng--</option>
+                                        <option>Giày nam</option>
+                                        <option>Giày nữ</option>
+                                        <option>Phụ kiện nam</option>
+                                        <option>Phụ kiện nữ</option>
+                                    </select>
+                                <label class="modal_label mr-3 mb-4" for=""><b>Tồn kho</b></label> <input type="number" class="price_input" placeholder="0"> <br>
+                                <label for="" class="ml-3 mr-3 mb-4"><b>Thương hiệu</b></label> <select id="inputState" >
+                                        <option selected disabled>--Chọn thương hiệu--</option>
+                                        <option>Addias</option>
+                                        <option>Nike</option>
+                                        <option>Bunma</option>
+                                        <option>Snecker</option>
+                                    </select> <br>
+                                    <label for="" class="ml-3 mr-3 mb-4"><b>Chọn loại da</b></label> <select id="inputState" >
+                                            <option selected disabled>--Chọn loại da--</option>
+                                            <option>Addias</option>
+                                            <option>Nike</option>
+                                            <option>Bunma</option>
+                                            <option>Snecker</option>
+                                        </select>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-ban"></i> Bỏ qua</button>
+                                <button type="button" class="btn btn-success"><i class="fa fa-save"></i> Lưu</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="form-inline my-2 my-lg-0">
+                    <a href="http://127.0.0.1:5503/sales.html"><i class="fa fa-shopping-cart"></i> Bán Hàng</a>
+                </form>
+            </div>
+            <div class="content_listproduct_permission mt-2">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Mã hàng hóa</th>
+                        <th scope="col">Tên hàng hóa</th>
+                        <th scope="col">Giá bán</th>
+                        <th scope="col">Giá vốn</th>
+                        <th scope="col">Tồn kho</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                       
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>TD7654B</td>
+                        <td>Adidas</td>
+                        <td>250$</td>
+                        <td>100$</td>
+                        <td>50</td>
+                        <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target=".bd-example-modal-lg">Chi tiết</button></td>
+                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Chi tiết sản phẩm</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5 class="text-primary">Giày Adidas</h5 class="text-primary">
+                                        <div class="modalbody_product">
+                                            <div class="modalbody_product_img">
+                                                <img src="./img/product1.jpg" alt="">
+                                            </div>
+                                            <div class="modalbody_product_content ml-3">
+                                                <p>Mã hàng hóa: </p>
+                                                <p>Nhóm hàng: </p>
+                                                <p>Thương hiệu: </p>
+                                                <p>Loại da: </p>
+                                                <p>Giá bán: </p>
+                                                <p>Giá vốn: </p>
+                                                <textarea placeholder="Ghi chú..." name="" id="" cols="60" rows="5"></textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" ><i class="fa fa-upload"></i> Cập nhật</button>
+                                        <button type="button" class="btn btn-warning"><i class="fa fa-times"></i> Ngừng kinh doanh</button>
+                                        <button type="button" class="btn btn-warning"><i class="fa fa-trash"></i> Xóa</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-arrow-circle-right"></i> Quay lại</button>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td >TD7654V</td>
+                        <td>Nike</td>
+                        <td>300$</td>
+                        <td>150$</td>
+                        <td>30</td>
+                        <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target=".bd-example-modal-lg2">Chi tiết</button></td>
+                        <div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Chi tiết sản phẩm</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5 class="text-primary">Giày Nike</h5 class="text-primary">
+                                        <div class="modalbody_product">
+                                            <div class="modalbody_product_img">
+                                                <img src="./img/product2.jpg" alt="">
+                                            </div>
+                                            <div class="modalbody_product_content ml-3">
+                                                <p>Mã hàng hóa: </p>
+                                                <p>Nhóm hàng: </p>
+                                                <p>Thương hiệu: </p>
+                                                <p>Loại da: </p>
+                                                <p>Giá bán: </p>
+                                                <p>Giá vốn: </p>
+                                                <textarea placeholder="Ghi chú..." name="" id="" cols="60" rows="5"></textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" ><i class="fa fa-upload"></i> Cập nhật</button>
+                                        <button type="button" class="btn btn-warning"><i class="fa fa-times"></i> Ngừng kinh doanh</button>
+                                        <button type="button" class="btn btn-warning"><i class="fa fa-trash"></i> Xóa</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-arrow-circle-right"></i> Quay lại</button>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
