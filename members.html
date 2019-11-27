@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/permission.css">
+    <!-- <link rel="stylesheet" href="./css/product.css"> -->
 </head>
 
 <body>
@@ -70,12 +71,16 @@
                                     <input type="password" class="form-control" id="formGroupExampleInput" placeholder="Mật khẩu">
                                 </div>
                                 <div class="form-group">
-                                    <label for="formGroupExampleInput5">Nơi ở</label>
+                                    <label for="formGroupExampleInput4">Xác nhận mật khẩu</label>
+                                    <input type="password" class="form-control" id="formGroupExampleInput" placeholder="Xác nhận mật khẩu">
+                                </div>
+                                <div class="form-group">
+                                    <label for="formGroupExampleInput5">Quyền</label>
                                     <select id="inputState" class="form-control">
-                                        <option selected>Chọn nơi ở</option>
-                                        <option>Tp.HCM</option>
-                                        <option>Hà Nội</option>
-                                        <option>Đà Nẵng</option>
+                                        <option selected>Chọn quyền</option>
+                                        <option>Admin</option>
+                                        <option>Employee</option>
+                                        <option>User</option>
                                         <option>Cà Mau</option>
                                     </select>
                                 </div>
@@ -111,8 +116,44 @@
                         <td>
                             <button type="button" class="btn btn-primary">Sửa</button>
                             <button type="button" class="btn btn-danger">Xóa</button>
-                            <button type="button" class="btn btn-success">Xem</button>
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target=".bd-example-modal-lg">Xem</button>
                         </td>
+                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Thông tin chi tiết</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5 class="text-primary">Mark</h5 class="text-primary">
+                                        <div class="modalbody_product">
+                                            <div class="modalbody_product_img">
+                                                <img src="./img/profile.jpg" alt="">
+                                            </div>
+                                            <div class="modalbody_product_content ml-3">
+                                                <p>Họ tên: </p>
+                                                <p>Giới tính: </p>
+                                                <p>UserName: </p>
+                                                <p>Quyền: </p>
+                                                <p>Chức vụ: </p>
+                                                <p>Thời gian vào làm: </p>
+                                                <textarea placeholder="Ghi chú..." name="" id="" cols="60" rows="5"></textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" ><i class="fa fa-upload"></i> Cập nhật</button>
+                                        <button type="button" class="btn btn-warning"><i class="fa fa-times"></i> Ngừng kinh doanh</button>
+                                        <button type="button" class="btn btn-warning"><i class="fa fa-trash"></i> Xóa</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-arrow-circle-right"></i> Quay lại</button>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
                     </tr>
 
                 </tbody>

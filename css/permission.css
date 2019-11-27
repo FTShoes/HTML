@@ -83,3 +83,20 @@ body{
     color: #eae8dc !important;
     transition: all 0.3s !important;
 }
+.modalbody_product{
+    display: flex;
+    flex-direction: row;
+}
+.modalbody_product_img{
+    width: 40%;
+    height: 100%;
+    position: relative;
+}
+.modalbody_product_img img{
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    position: absolute;
+    top: 50px;
+    left: 40px;
+}
